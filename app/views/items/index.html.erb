@@ -1,7 +1,11 @@
-<div class="container">
-  <%# Loop through the items %>
-  <% @items.each do |item| %>
-    <h2><%= link_to item.title, item %></h2>
-    <p><%= item.description %></p>
-  <% end %>
-</div>
+<% if user_signed_in? %>
+  <div class="container">
+    <%# Loop through the items %>
+    <% @items.each do |item| %>
+      <h2><%= link_to item.title, item %></h2>
+      <p><%= item.description %></p>
+    <% end %>
+  </div>
+<% else %>
+  <%= render 'welcome_page' %>
+<% end %>
