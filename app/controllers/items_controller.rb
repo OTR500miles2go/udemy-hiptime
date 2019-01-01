@@ -8,6 +8,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    puts "**** I'm in Show **** "
   end
 
   def new 
@@ -35,12 +36,13 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    puts "%%%%%%  DESTROY  %%%%%%%%%"
     @item.destroy
     redirect_to root_path
   end
 
   def complete
-    @item = Item.find(params[:id])
+    @item = Item.find(params[:item_id])
     @item.update_attribute(:completed_at, Time.now)
     redirect_to root_path
   end
@@ -52,6 +54,7 @@ class ItemsController < ApplicationController
   end
 
   def find_item
+    puts "*** in find item ***"
     @item = Item.find(params[:id])
   end
 

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :items do
     patch :complete
+    get :complete
   end
 
   root 'items#index'
